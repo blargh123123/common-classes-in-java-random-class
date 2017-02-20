@@ -1,5 +1,7 @@
 package com.theironyard;
 
+import java.util.Random;
+
 /**
  * For this exercise you will complete the following class that prints out five
  * lucky numbers from -50 to 100 based on the current timestamp. For example:
@@ -17,12 +19,16 @@ public class LuckyNumbers {
      * Random. Don't initialize it here, you'll create constructors to do that.
      */
     // todo: create private property to hold an instance of Random
+    private Random rand;
 
     /**
      * Create a no-argument constructor that sets `rand` to an instance of
      * Random.
      */
     // todo: create no-argument constructor
+    public LuckyNumbers(){
+        this.rand = new Random();
+    }
 
     /**
      * Create a constructor that accepts a long argument. Create a new instance
@@ -30,6 +36,9 @@ public class LuckyNumbers {
      * @param timestamp
      */
     // todo: create a constructor that accepts a long argument
+    public LuckyNumbers(long timestamp){
+        this.rand = new Random(timestamp);
+    }
 
     /**
      * Create a method named fiveLuckyNumbers() that returns nothing. When
@@ -43,6 +52,17 @@ public class LuckyNumbers {
      * sure to use the `rand` property as the random number generator.
      */
     // todo: create fiveLuckyNumbers() method
+
+    public void fiveLuckyNumbers(){
+        int l1 = rand.nextInt(151) - 50;
+        int l2 = rand.nextInt(151) - 50;
+        int l3 = rand.nextInt(151) - 50;
+        int l4 = rand.nextInt(151) - 50;
+        int l5 = rand.nextInt(151) - 50;
+
+        System.out.printf("Your five lucky numbers are: %s, %s, %s, %s, %s",
+                l1, l2, l3, l4, l5);
+    }
 
 
 }
